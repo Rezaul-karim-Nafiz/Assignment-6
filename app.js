@@ -42,7 +42,7 @@ const getImages = (query) => {
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
     .then(data => showImages(data.hits))
-    .catch(err => console.log(err))
+    .catch(error => displayError('Item Not Fount !! please try again')) 
 }
 
 let slideIndex = 0;
@@ -135,6 +135,7 @@ searchBtn.addEventListener('click', function () {
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
+
 //=======ADD NEW FEATURES=====//
 const toggleSpinner = (show) =>{
   const spinner = document.getElementById('loading_spinner');
@@ -144,5 +145,11 @@ const toggleSpinner = (show) =>{
     spinner.classList.add('display')
   }
 }
+
+//=======Show Error Message=========//
+const displayError = error =>{
+  const errorTag = document.getElementById('alertError')
+  errorTag.innerText = error
+} 
 
 
