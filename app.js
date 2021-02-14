@@ -54,7 +54,7 @@ const selectItem = (event, img) => {
   if (item === -1) {
     sliders.push(img);
   } else {
-    sliders.pop(img);
+     sliders = sliders.filter((slider) => slider !== img);
   }
 }
 var timer
@@ -88,7 +88,7 @@ const createSlider = () => {
       alt="">`;
       sliderContainer.appendChild(item) })
   }else{
-    alert('Please give at least 1000');
+    alert('Please give a duration at least 1000');
   }
   
   changeSlide(0)
@@ -135,7 +135,7 @@ searchBtn.addEventListener('click', function () {
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
-
+//=======ADD NEW FEATURES=====//
 const toggleSpinner = (show) =>{
   const spinner = document.getElementById('loading_spinner');
   if(show){
